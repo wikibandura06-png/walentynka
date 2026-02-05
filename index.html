@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>💖 Goofy…</title>
+
+<style>
+body {
+margin: 0;
+height: 100vh;
+background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+font-family: 'Comic Sans MS', cursive, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+transition: background 0.8s;
+}
+
+.card {
+background: white;
+padding: 40px;
+border-radius: 30px;
+width: 90%;
+max-width: 450px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+h1 {
+color: #ff4d6d;
+margin-bottom: 20px;
+}
+
+.hearts {
+color: #ff6f91;
+font-size: 18px;
+margin: 15px 0;
+}
+
+img {
+max-width: 220px;
+border-radius: 20px;
+margin: 15px 0;
+}
+
+button {
+margin-top: 25px;
+padding: 12px 30px;
+font-size: 18px;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+background: #ff4d6d;
+color: white;
+transition: transform 0.2s;
+}
+
+button:hover {
+transform: scale(1.1);
+}
+
+.buttons {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+<div class="card" id="card">
+<h1 id="title">Goofy, chciałabym, żebyś wiedział</h1>
+<div id="text">
+<img src="shy_cat.jpg">
+</div>
+<button id="btn" onclick="next()">next ➜</button>
+</div>
+
+<script>
+let step = 0;
+
+function next() {
+const text = document.getElementById("text");
+const btn = document.getElementById("btn");
+const title = document.getElementById("title");
+
+if (step === 0) {
+text.innerHTML = `
+<img src="shy_cat.jpg">
+<div class="hearts">💗💗💗 Jesteś najbardziej uroczą i zabawną osobą jaką znam 💗💗💗</div>
+`;
+}
+
+if (step === 1) {
+text.innerHTML = `
+<img src="shy_cat.jpg">
+<div class="hearts">💗💗💗 sprawiasz, że z mojej buzi nie znika uśmiech 💗💗💗</div>
+`;
+}
+
+if (step === 2) {
+text.innerHTML = `
+<img src="shy_cat.jpg">
+<div class="hearts">
+💗💗💗 czasem mam wrażenie, że nasze dusze delikatnie się rozpoznają,
+nawet jeśli to dopiero początek 💗💗💗
+</div>
+`;
+}
+
+if (step === 3) {
+title.innerHTML = "";
+text.innerHTML = `
+<img src="shy_cat.jpg">
+<h1>dlatego chciałabym zapytać</h1>
+`;
+btn.innerHTML = "oho 👀";
+}
+
+if (step === 4) {
+title.innerHTML = `<h1>💘 czy zostaniesz moją walentynką? 💘</h1>`;
+text.innerHTML = `
+<div class="buttons">
+<button onclick="superYes()">po stokroć tak 💖</button>
+<button onclick="justYes()">tak</button>
+</div>
+`;
+btn.style.display = "none";
+}
+
+step++;
+}
+
+function justYes() {
+document.body.style.background = "#7aa2d6";
+document.getElementById("card").innerHTML = `
+<img src="cry_cat.jpg">
+<h1 style="color:#1f3c88;">ej no…</h1>
+<p>wyjdź i zrób to jeszcze raz</p>
+`;
+}
+
+function superYes() {
+document.body.style.background = "linear-gradient(135deg, #ff9a9e, #fad0c4)";
+document.getElementById("card").innerHTML = `
+<img src="happy_cat.jpg">
+<h1>jestem najszczęśliwsza na świecie</h1>
+<p>
+to co jest między nami jest wyjątkowe i niesamowite<br>
+i cieszę się, że właśnie z Tobą mogę to odkrywać 💕
+</p>
+`;
+}
+</script>
+</body>
+</html>
